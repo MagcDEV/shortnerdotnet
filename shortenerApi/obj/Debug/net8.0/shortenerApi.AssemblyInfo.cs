@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("shortenerApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9303b57f60653564b66812f3bd566f8edec7f17f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c52938946c8d0599a77f5cb4b8ee80bad884468")]
 [assembly: System.Reflection.AssemblyProductAttribute("shortenerApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("shortenerApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
