@@ -1,4 +1,7 @@
-﻿namespace shortenerApi.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using shortenerApi.Data;
+
+namespace shortenerApi.Services;
 
 public class UrlShortenerService
 {
@@ -6,8 +9,14 @@ public class UrlShortenerService
     private const string Alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     private readonly Random _random = new();
+    private readonly AppDbContext _appDbContext;
+
+    public UrlShortenerService(AppDbContext appDbContext)
+    {
+        _appDbContext = appDbContext;
+    }
     
-    public string GenerateUniqueCode()
+    public async Task<string> GenerateUniqueCode()
     {
         var codeChars = new char[NumberOfChartsShortlink];
 
@@ -19,6 +28,8 @@ public class UrlShortenerService
         }
 
         var code = new string(codeChars);
+
+        if (await _appDbContext.ShortenedUrls.AnyAsync(s => s.Code == code)) return await GenerateUniqueCode();
 
         return code;
 
